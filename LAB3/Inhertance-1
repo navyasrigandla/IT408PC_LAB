@@ -1,0 +1,33 @@
+class L3P1{
+     static int view=15;
+    public static void display(){
+       System.out.println(view);
+    }
+    public int show(){
+       view=10;
+       return view;
+    }
+}
+
+class A extends L3P1{
+   static int neu=10;
+   public static void display(){
+      System.out.println(view+neu);
+   }
+   public int show(){
+      return (neu+view);
+   }
+   public void pearl(){
+        System.out.println("I am child of L3P1");
+   } 
+}
+
+class B{
+    public static void main(String[] args){
+       A ob = new A();
+       ob.display();
+       int k= ob.show();
+       System.out.println(k);
+       ob.pearl();
+     }
+}
