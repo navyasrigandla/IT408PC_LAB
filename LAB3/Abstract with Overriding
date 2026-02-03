@@ -1,0 +1,21 @@
+abstract class Animal{
+   abstract public void makeSound();
+}
+class Lion extends Animal{
+   public void makeSound(){
+      System.out.println("Roar");
+   }
+}
+class Tiger extends Animal{
+   public void makeSound(){
+     System.out.println("Woooo");
+   }
+}
+public class L3P2{
+   public static void main(String[] args){
+      Lion l=new Lion();
+      Tiger t = new Tiger();
+      l.makeSound();
+      t.makeSound();
+  }
+}
