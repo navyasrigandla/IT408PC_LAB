@@ -1,0 +1,25 @@
+ class Bank {
+    private static double bal =1000;
+    public static void setter(double amount , String type){ 
+         if(type.equals("Withdrawl")){
+            bal = bal-amount;
+           System.out.println(getter());
+         }
+         else if(type.equals("Deposit")){
+            bal = bal + amount;
+            System.out.println(getter());
+         }
+         else{
+            System.out.println("Invalid Input");
+         }
+    }
+    public static double getter(){
+        return bal;
+    } 
+}
+public class Person extends Bank{
+    public static void main(String[] args){
+    Bank b = new Bank();
+    b.setter(12000, "Deposit");
+    }  
+}
