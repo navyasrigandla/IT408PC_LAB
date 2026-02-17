@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class AgeException extends Exception{
+   public AgeException(String msg){
+      super(msg);
+   }
+}
+public class L5P1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        try{
+          int age=sc.nextInt();
+          if(age<18){
+             throw new AgeException("YOu are not eligible to vote");
+          }
+          else
+            System.out.println("please cast your vote");
+        }
+        catch(AgeException ae){
+           System.out.println(ae.getMessage());
+        }   
+    }
+}
