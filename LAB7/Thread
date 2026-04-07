@@ -1,0 +1,31 @@
+import java.util.*;
+
+class MyThread extends Thread{
+     MyThread(String s){
+       super(s);
+     }
+     public static void main(String[] args)throws Exception{
+       MyThread t=new MyThread("Hello");
+       System.out.println(t.getState());
+       t.start();
+       System.out.println(t.getState());
+       Thread.sleep(500);
+
+       System.out.println(t.getState());
+       t.join();
+       System.out.println(t.getState());
+
+     }
+     @Override
+     public void run(){
+       System.out.println("At present thread"+this.getName()+"is running.");
+       this.getState();
+       try{       
+         for(int i=1;i<=3;i++){
+           System.out.println("Awaiting at step "+i);
+           Thread.sleep(500);
+           System.out.println(this.getState());
+         }
+       }catch(Exception e){}
+     }
+}
