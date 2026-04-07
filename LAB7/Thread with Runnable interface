@@ -1,0 +1,33 @@
+// create thread using runnable interface
+import java.util.*;
+
+class MyRunnable implements Runnable{
+       public static void main(String[] args)throws Exception{
+       MyRunnable r=new MyRunnable();
+       Thread t=new Thread(r,"EPSON");
+       System.out.println(t.getState());
+       t.start();
+       System.out.println(t.getState());
+       Thread.sleep(500);
+
+       System.out.println(t.getState());
+       t.join();
+       System.out.println(t.getState());
+
+     }
+     
+     public void run(){
+       String name= Thread.currentThread().getName();
+       System.out.println("At present thread"+name+"is running.");
+       
+       System.out.println(name);
+       try{       
+         for(int i=1;i<=3;i++){
+           System.out.println("Awaiting at step "+i);
+           
+           System.out.println(name);
+           Thread.sleep(500);
+         }
+       }catch(Exception e){}
+     }
+}
