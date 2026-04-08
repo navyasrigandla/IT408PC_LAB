@@ -1,0 +1,35 @@
+//WAP to create two threads , which prints odd, even numbers.
+import java.util.*;
+
+class MT extends Thread{
+     MT(String s){
+       super(s);
+     }
+public static void main(String[] args)throws Exception{
+     MT t1= new MT("Even Thread");
+     MT t2= new MT("Odd Thread");
+     t1.start();
+      Thread.sleep(500);  // all odd and even are printed together.
+     t2.start();
+}
+  @Override
+  public void run(){
+      for(int i=1;i<=20;i++){
+         try{
+           //System.out.println(this.getName());
+           if(this.getName().equals("Even Thread") && i%2==0){
+             System.out.println(this.getName()+":"+i);
+           }
+                        
+           else if(this.getName().equals("Odd Thread") && i%2!=0){
+              System.out.println(this.getName()+":"+i);      
+           }
+           // Thread.sleep(500); // this line Helps to get in order
+
+         }
+      catch(Exception e){}
+    }
+}
+}
+     
+ 
